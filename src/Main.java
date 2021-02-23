@@ -1,7 +1,10 @@
 public class Main {
 
     public static void main(String[] args) {
-        EFFY_PassGenerator myPass = new EFFY_PassGenerator(200,2);
-        System.out.println(myPass.GenerateList());
+        EFFY_PassGenerator myPass = new EFFY_PassGenerator(20,5);
+        //System.out.println(myPass.GenerateDigit());
+        //System.out.println(myPass.GenerateAlpha());
+        //System.out.println(myPass.GenerateMixed());
+        System.out.println(myPass.Generate("MIXED"));
     }
 }
