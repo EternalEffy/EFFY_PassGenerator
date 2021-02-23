@@ -1,12 +1,7 @@
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import java.util.Random;
 
 public class EFFY_PassGenerator {
-    private static final String DIGITS = "0123456789";
     private int passLenght;
     private int passCount;
 
@@ -32,7 +27,6 @@ public class EFFY_PassGenerator {
                 }
                 sb.delete(0,sb.length());
             }
-        System.out.println("------------------" + passwordList.size());
         return passwordList;
     }
 }
