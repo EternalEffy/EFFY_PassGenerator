@@ -60,10 +60,10 @@ public class EFFY_PassGenerator {
     }
 
     public ArrayList Generate(String type){
-        if(type.equals(TypeGenerate.getAlpha())){
+        if(type.equals(TypeGenerate.Alpha)){
             return GenerateAlpha();
         }
-        else if(type.equals(TypeGenerate.getDigit())){
+        else if(type.equals(TypeGenerate.Digit)){
             return GenerateDigit();
         }
         else

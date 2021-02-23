@@ -5,6 +5,6 @@ public class Main {
         //System.out.println(myPass.GenerateDigit());
         //System.out.println(myPass.GenerateAlpha());
         //System.out.println(myPass.GenerateMixed());
-        System.out.println(myPass.Generate(TypeGenerate.getAlpha()));
+        System.out.println(myPass.Generate(TypeGenerate.Alpha));
     }
 }
