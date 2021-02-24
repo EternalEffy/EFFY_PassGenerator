@@ -13,10 +13,11 @@ public class EFFY_PassGenerator {
 
     public ArrayList GenerateDigit(){
         ArrayList<String> passwordList = new ArrayList<>(passCount);
+        Random r = new Random();
         StringBuffer sb = new StringBuffer(passLenght);
         for (int i = 0; i < passCount; i++) {
             for (int k = 0; k < passLenght; k++) {
-                sb.append(Combo.charAt((int)(10*Math.random())));
+                sb.append(Combo.charAt(r.nextInt(10)));
             }
             checkList(sb,passwordList);
         }
@@ -37,10 +38,11 @@ public class EFFY_PassGenerator {
 
     public ArrayList GenerateMixed(){
         ArrayList<String> passwordList = new ArrayList<>(passCount);
+        Random r = new Random();
         StringBuffer sb = new StringBuffer(passLenght);
         for (int i = 0; i < passCount; i++) {
             for (int k = 0; k < passLenght; k++) {
-                sb.append(Combo.charAt((int)(Combo.length() * Math.random())));
+                sb.append(Combo.charAt(r.nextInt(Combo.length())));
             }
             checkList(sb,passwordList);
         }
@@ -61,9 +63,7 @@ public class EFFY_PassGenerator {
     public void checkList(StringBuffer sb,ArrayList passwordList){
         if(!passwordList.contains(String.valueOf(sb))){
             passwordList.add(String.valueOf(sb));
-            sb.delete(0,sb.length());
-        }
+            }
         sb.delete(0,sb.length());
     }
-
 }
