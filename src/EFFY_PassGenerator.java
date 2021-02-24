@@ -5,6 +5,7 @@ public class EFFY_PassGenerator {
     private int passLenght;
     private int passCount;
     private final String Combo = "0123456789AaBbCcDdEeFfGgHhJjKkIiLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+    private final int index = 10;
 
     public EFFY_PassGenerator(int passCount, int passLenght){
         this.passCount = passCount;
@@ -17,7 +18,7 @@ public class EFFY_PassGenerator {
         StringBuffer sb = new StringBuffer(passLenght);
         for (int i = 0; i < passCount; i++) {
             for (int k = 0; k < passLenght; k++) {
-                sb.append(Combo.charAt(r.nextInt(10)));
+                sb.append(Combo.charAt(r.nextInt(index)));
             }
             checker(sb,passwordList);
         }
@@ -30,7 +31,7 @@ public class EFFY_PassGenerator {
         StringBuffer sb = new StringBuffer(passLenght);
         for (int i = 0; i < passCount; i++) {
             for (int k = 0; k < passLenght; k++) {
-                sb.append(Combo.charAt((r.nextInt(Combo.length()-10))+10));
+                sb.append(Combo.charAt((r.nextInt(Combo.length()-index))+index));
             }
             checker(sb,passwordList);
         }
@@ -50,15 +51,13 @@ public class EFFY_PassGenerator {
         return passwordList;
     }
 
-    public ArrayList Generate(String type){
-        if(type.equals(TypeGenerate.Alpha)){
-            return GenerateAlpha();
+    public ArrayList Generate(int type){
+        switch (type) {
+           case 0: return GenerateDigit();
+           case 1: return GenerateAlpha();
+           case 2: return GenerateMixed();
         }
-        else if(type.equals(TypeGenerate.Digit)){
-            return GenerateDigit();
-        }
-        else
-            return GenerateMixed();
+        return null;
     }
 
    /* public void checkList(StringBuffer sb,ArrayList passwordList){
