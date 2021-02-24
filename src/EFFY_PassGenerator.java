@@ -19,7 +19,7 @@ public class EFFY_PassGenerator {
             for (int k = 0; k < passLenght; k++) {
                 sb.append(Combo.charAt(r.nextInt(10)));
             }
-            checkList(sb,passwordList);
+            checker(sb,passwordList);
         }
         return passwordList;
     }
@@ -30,9 +30,9 @@ public class EFFY_PassGenerator {
         StringBuffer sb = new StringBuffer(passLenght);
         for (int i = 0; i < passCount; i++) {
             for (int k = 0; k < passLenght; k++) {
-                sb.append(Combo.substring(10).charAt(r.nextInt(Combo.substring(10).length())));
+                sb.append(Combo.charAt((r.nextInt(Combo.length()-10))+10));
             }
-            checkList(sb,passwordList);
+            checker(sb,passwordList);
         }
         return passwordList;
     }
@@ -45,7 +45,7 @@ public class EFFY_PassGenerator {
             for (int k = 0; k < passLenght; k++) {
                 sb.append(Combo.charAt(r.nextInt(Combo.length())));
             }
-            checkList(sb,passwordList);
+            checker(sb,passwordList);
         }
         return passwordList;
     }
@@ -61,10 +61,27 @@ public class EFFY_PassGenerator {
             return GenerateMixed();
     }
 
-    public void checkList(StringBuffer sb,ArrayList passwordList){
+   /* public void checkList(StringBuffer sb,ArrayList passwordList){
         if(!passwordList.contains(String.valueOf(sb))){
             passwordList.add(String.valueOf(sb));
             }
+        sb.delete(0,sb.length());
+    }*/
+
+
+    public void checker(StringBuffer sb,ArrayList passwordList){
+        if(passwordList.size()==0){
+            passwordList.add(String.valueOf(sb));
+        }
+        for(int i=0;i<passwordList.size();i++){
+            if((passwordList.get(i).equals(String.valueOf(sb)))){
+                break;
+            }
+            else {
+                passwordList.add(String.valueOf(sb));
+                break;
+            }
+        }
         sb.delete(0,sb.length());
     }
 }
