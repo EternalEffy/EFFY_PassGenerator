@@ -26,10 +26,11 @@ public class EFFY_PassGenerator {
 
     public ArrayList GenerateAlpha(){
         ArrayList<String> passwordList = new ArrayList<>(passCount);
+        Random r = new Random();
         StringBuffer sb = new StringBuffer(passLenght);
         for (int i = 0; i < passCount; i++) {
             for (int k = 0; k < passLenght; k++) {
-                sb.append(Combo.substring(10).charAt((int)(Combo.substring(10).length()* Math.random())));
+                sb.append(Combo.substring(10).charAt(r.nextInt(Combo.substring(10).length())));
             }
             checkList(sb,passwordList);
         }
